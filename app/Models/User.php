@@ -24,6 +24,15 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function setPhoneNumberAttribute($value)
+    {
+        // Jika nomor telepon dimulai dengan '0', ubah awalan menjadi '62'
+        if (str_starts_with($value, '0')) {
+            $this->attributes['phone_number'] = '62' . substr($value, 1);
+        } else {
+            $this->attributes['phone_number'] = $value;
+        }
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

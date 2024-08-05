@@ -84,6 +84,10 @@
                                         <a class="dropdown-item"
                                             href="{{ route('member', Auth::user()->username) }}">Member
                                             Area</a>
+                                        @if (Auth::User()->username == 'Surya1810')
+                                            <a class="dropdown-item" href="{{ route('admin') }}">Admin
+                                                Area</a>
+                                        @endif
                                         <hr class="dropdown-divider">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

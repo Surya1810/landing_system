@@ -71,12 +71,9 @@
                                     <label for="phone" class="form-label col-form"
                                         style="font-weight: 500">{{ __('Nomor Whatsapp') }}</label>
                                     <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon1">+62</span>
-                                        </div>
                                         <input id="phone" type="number" min="0" name="phone"
                                             class="form-control @error('phone') is-invalid @enderror"
-                                            placeholder="81212341234" value="{{ old('phone') }}" required
+                                            placeholder="081212341234" value="{{ old('phone') }}" required
                                             autocomplete="phone" aria-label="phone" aria-describedby="basic-addon1">
                                     </div>
                                     @error('phone')

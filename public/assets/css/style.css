@@ -106,7 +106,7 @@ body::-webkit-scrollbar {
     width: 100svw;
 }
 .heroes {
-    height: 50svh;
+    min-height: 50svh;
     width: 100svw;
 }
 

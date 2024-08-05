@@ -35,9 +35,9 @@
                     width="72">
                 <h1 class="display-5 fw-bold text-warning">Selamat Datang</h1>
                 <div class="col-lg-6 mx-auto text-warning">
-                    <p class="lead mb-4">Tulis kisah sukses Anda bersama kami. Komunitas bisnis terbaik akan kami ciptakan
+                    <p class="mb-4">Tulis kisah sukses Anda bersama kami. Komunitas bisnis terbaik akan kami ciptakan
                         untuk Anda!</p>
-                    <a id="link-profile" class="btn btn-outline-warning btn-lg px-4 mt-3">Kenali Lebih
+                    <a id="link-profile" class="btn btn-outline-warning btn-lg px-4 my-2">Kenali Lebih
                         Jauh <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -143,6 +143,16 @@
             </div>
         </section>
 
+        <!-- Tentang CF Community -->
+        <section class="container my-5">
+            <h3 class="fw-light fs-2 mb-5 text-center"><strong class="fw-700">Cayo'us Familia Community</strong> bekerja sama
+                dengan perusahaan besar yang memproduksi produk-produk berkualitas tinggi yang dibuat oleh para ahli.<br>Bukan
+                hanya itu, dengan sistem bisnis yang mudah dijalankan ini membuat para anggota <strong class="fw-700">Cayo'us
+                    Familia Community</strong> mampu mendapatkan <strong class="fw-700">penghasilan yang fantastis</strong>
+                setiap harinya. Dari mulai ratusan ribu hingga jutaan. Berikut testimoni sistem bisnis yang sudah dibuktikan
+                oleh anggota kami.</h3>
+        </section>
+
 
         <!-- Testimoni -->
         <section class="bg-dark">
@@ -197,7 +207,7 @@
                             <small class="mb-0">Silahkan melakukan aktivasi terlebih dahulu.</small>
                         </div>
                         <div class="modal-footer flex-nowrap p-0">
-                            <a href="#"
+                            <a href="https://wa.me/"
                                 class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end"><strong>Aktivasi</strong></a>
                             <a class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0"
                                 href="{{ route('logout') }}"
