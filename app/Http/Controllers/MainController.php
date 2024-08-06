@@ -7,8 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Intervention\Image\ImageManager;
-use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\Laravel\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -79,21 +78,32 @@ class MainController extends Controller
             'avatar' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
 
-        $image = $request->file('avatar');
+        // $image = $request->file('avatar');
 
         if (!Storage::disk('public')->exists('profile')) {
             Storage::disk('public')->makeDirectory('profile');
         }
 
-        $manager = new ImageManager(new Driver());
-        $imageName  = 'avatar_' . time() . '.' . $image->getClientOriginalExtension();
-        $img = $manager->read($image);
-        $img->toWebp(90)->save(base_path('public/storage/profile/' . $imageName));
-        $save_url = 'profile/' . $imageName;
+        // $imageName  = 'avatar_' . time() . '.' . $image->getClientOriginalExtension();
+        // $manager = new ImageManager(new Driver());
+        // $img = $manager->read($image);
+        // $img->toWebp(90)->save(base_path('public/storage/profile/' . $imageName));
 
-        $client = User::find(Auth::id());
-        $client->avatar = $imageName;
-        $client->update();
+        if ($request->hasFile('avatar')) {
+
+            $image = Image::read($request->file('avatar'));
+
+            // Main Image Upload on Folder Code
+            $imageName = time() . '-' . $request->file('avatar')->getClientOriginalName();
+            $destinationPath = 'profile/' . $imageName;
+            // Simpan gambar ke disk 'public'
+            Storage::disk('public')->put($destinationPath, (string) $image->toWebp(90));
+
+            $client = User::find(Auth::id());
+            $client->avatar = $imageName;
+            $client->update();
+        }
+
 
         return redirect()->back()->with(['pesan' => 'Avatar updated successfully', 'level-alert' => 'alert-success']);
     }
